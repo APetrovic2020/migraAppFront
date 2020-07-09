@@ -1,0 +1,133 @@
+<h2 mat-dialog-title>Editar Campo tanto</h2>
+<mat-dialog-content class="mat-typography">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+        <!-- Col 1 -->
+        <div fxFlex="50">
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip color="accent" selected>
+                    <mat-icon id="icon-chip">grid_on</mat-icon> Unificado
+                </mat-chip>
+            </mat-chip-list>
+            <div class="cont-unificado">
+                <mat-form-field>
+                    <mat-label><strong>Forma</strong></mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let food of foods" (click)="cargaForm(food.value)" [value]="food.value">
+                            {{food.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <br><br>
+
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+                    <div fxFlex="50">
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Columna</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="TNCF_HITOA">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Tipo de dato</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="TNCF_HITOA">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Precición</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="TNCF_HITOA">
+                        </mat-form-field>
+
+
+                        <!-- Col 2 -->
+                    </div>
+                    <div fxFlex="50">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Tipo de dato Unificado</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="TNCF_HITOA">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Tipo de dato Unificado</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="TNCF_HITOA">
+                        </mat-form-field>
+                        <section class="example-section">
+                            <mat-checkbox class="example-margin">PK</mat-checkbox>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div fxFlex="50">
+            <!-- PK -->
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip color="primary" selected> <mat-icon id="icon-chip">grid_on</mat-icon> Origen</mat-chip>
+            </mat-chip-list>
+
+            <div class="cont-origen" *ngIf="formulario_pk" @muestraOculta>
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+                    <div fxFlex="50">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Columna</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="TNCF_HITOA">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Tipo de dato</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="TNCF_HITOA">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Precición</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="TNCF_HITOA">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="50">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Tipo de dato Unificado</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="TNCF_HITOA">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Tipo de dato Unificado</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="TNCF_HITOA">
+                        </mat-form-field>
+                        <section class="example-section">
+                            <mat-checkbox class="example-margin">PK</mat-checkbox>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <!-- FN -->
+            <div class="cont-origen" *ngIf="formulario_fn" @muestraOculta>
+                <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+                    <div fxFlex="100">
+                        <mat-form-field>
+                            <mat-label><strong>Función</strong></mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let food of foods" (click)="cargaForm(food.value)"
+                                    [value]="food.value">
+                                    {{food.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Parametros</mat-label>
+                            <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                        </mat-form-field>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cerrar</button>
+    <!-- 
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+     -->
+</mat-dialog-actions>

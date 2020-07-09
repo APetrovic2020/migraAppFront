@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>Comparación</h2>
+<mat-dialog-content class="mat-typography">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+        <!-- Col 1 -->
+        <div fxFlex="50">
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip color="accent" selected> <mat-icon id="icon-chip">grid_on</mat-icon> Unificado</mat-chip>
+            </mat-chip-list>
+            <div class="cont-unificado">
+                <h1>{{nombreTabU}}</h1>
+                <table>
+                    <tr>
+                        <th>Columnas</th>
+                    </tr>
+                    <tr *ngFor="let cols of buscarColsU">
+                        <td>{{cols.columnName}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Col 2 -->
+        <div fxFlex="50">
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip color="primary" selected> <mat-icon id="icon-chip">grid_on</mat-icon> Sistema Base</mat-chip>
+            </mat-chip-list>
+            <div class="cont-origen">
+                <h1>{{nombreTabO}}</h1>
+                <table>
+                    <tr>
+                        <th>Columnas</th>
+                    </tr>
+                    <tr *ngFor="let cols of buscarColsO">
+                        <td>{{cols.columnName}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cerrar</button>
+    <!-- 
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+     -->
+</mat-dialog-actions>
